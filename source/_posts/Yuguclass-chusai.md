@@ -12,7 +12,7 @@ categories: OI - 算法笔记
 tags: 初赛
 keywords:
 description: AFO前浪一浪
-photos: https://i.loli.net/2019/04/30/5cc814487ca96.jpg
+photos: 
 ---
 - 由数字 1,1,2,4,8,8 所组成的不同四位数个数？
 
