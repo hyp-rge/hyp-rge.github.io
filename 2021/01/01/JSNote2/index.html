@@ -76,7 +76,7 @@
 }
 </style>
 
-  <title> Hello World Again · hyp_rge's blog </title>
+  <title> Learning JavaScript! 2 · hyp_rge's blog </title>
 <meta name="generator" content="Hexo 5.3.0"></head>
 <body>
   <div class="container">
@@ -222,7 +222,7 @@
   <aside class="post-toc">
     <div class="title"><span>Index</span></div>
     <div class="toc-inner">
-      
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Object-Sequel"><span class="toc-text">Object(Sequel)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Functions-are-Objects"><span class="toc-text">Functions are Objects</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Value-and-Reference"><span class="toc-text">Value and Reference</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Cloning-an-Object"><span class="toc-text">Cloning an Object</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Template-Literals-Template-strings"><span class="toc-text">Template Literals(Template strings)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Some-Built-in-Objects-with-their-Functions-or-Methods"><span class="toc-text">Some Built-in Objects with their Functions or Methods</span></a></li></ol></li></ol>
     </div>
   </aside>
 
@@ -245,19 +245,67 @@
       <div class="post-time syuanpi fadeInRightShort back-1">
         <div class="post-time-wrapper">
           
-          <time>9999-12-31</time>
+          <time>2021-01-01</time>
           
         </div>
       </div>
       <h1 class="post-title syuanpi fadeInRightShort back-2">
         
-          Hello World Again
+          Learning JavaScript! 2
         
       </h1>
     </header>
     <div class="post-content syuanpi fadeInRightShort back-3">
       
-        <p>Hello!<br>All the older posts have been moved to <a target="_blank" rel="noopener" href="http://ac.miyaharu.tech/archives/3/">Blog.old</a>.</p>
+        <h3 id="Object-Sequel"><a href="#Object-Sequel" class="headerlink" title="Object(Sequel)"></a>Object(Sequel)</h3><h4 id="Functions-are-Objects"><a href="#Functions-are-Objects" class="headerlink" title="Functions are Objects"></a>Functions are Objects</h4><p>This part looks a little bit complex for me.<span class="github-emoji" alias="cry" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f622.png?v8">&#x1f622;</span></p>
+<p>I will review it when I reach the chapter ‘Function’.</p>
+<h4 id="Value-and-Reference"><a href="#Value-and-Reference" class="headerlink" title="Value and Reference"></a>Value and Reference</h4><table>
+<thead>
+<tr>
+<th>Value Types</th>
+<th>Reference Types</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Number</td>
+<td>Object</td>
+</tr>
+<tr>
+<td>String</td>
+<td>Function</td>
+</tr>
+<tr>
+<td>Boolean</td>
+<td>Array</td>
+</tr>
+<tr>
+<td>Symbol</td>
+<td></td>
+</tr>
+<tr>
+<td>undefined</td>
+<td></td>
+</tr>
+<tr>
+<td>null</td>
+<td></td>
+</tr>
+</tbody></table>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = <span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">increase</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">    obj.value++;</span><br><span class="line">&#125;</span><br><span class="line">increase(obj);</span><br><span class="line"><span class="built_in">console</span>.log(obj); <span class="comment">// value -&gt; 10</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;<span class="attr">value</span>: <span class="number">10</span>&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">increase</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">    obj.value++;</span><br><span class="line">&#125;</span><br><span class="line">increase(obj);</span><br><span class="line"><span class="built_in">console</span>.log(obj); <span class="comment">// value -&gt; 11</span></span><br></pre></td></tr></table></figure>
+<p>JS has no such concept of  “pointers”.</p>
+<h4 id="Cloning-an-Object"><a href="#Cloning-an-Object" class="headerlink" title="Cloning an Object"></a>Cloning an Object</h4><p>Using <strong>Object.assign</strong>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123;<span class="attr">value</span>: <span class="number">10</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> obj2 = <span class="built_in">Object</span>.assign(&#123;&#125;,obj);</span><br><span class="line"></span><br><span class="line"><span class="comment">//2</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123;<span class="attr">value</span>: <span class="number">10</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> obj2 = &#123;<span class="attr">anotherProperty</span>: <span class="string">&#x27;haha&#x27;</span>&#125;;</span><br><span class="line"><span class="built_in">Object</span>.assign(obj2,obj);</span><br></pre></td></tr></table></figure>
+<p>Using  <strong>Spread Operator(…)</strong>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj2 = &#123; ...obj &#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="Template-Literals-Template-strings"><a href="#Template-Literals-Template-strings" class="headerlink" title="Template Literals(Template strings)"></a>Template Literals(Template strings)</h4><p>No escape characters, no ‘+’ operator. Just format our string the way we want it to look like! <span class="github-emoji" alias="smile" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8">&#x1f604;</span></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> message = </span><br><span class="line"><span class="string">`</span></span><br><span class="line"><span class="string">This is a message.</span></span><br><span class="line"><span class="string">It looks the same as the output.</span></span><br><span class="line"><span class="string">`</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// placeholder $&#123;EXPRESSION&#125;</span></span><br><span class="line"><span class="keyword">const</span> name = <span class="string">&#x27;Haru&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> message =</span><br><span class="line"><span class="string">`</span></span><br><span class="line"><span class="string">Hi <span class="subst">$&#123;name&#125;</span>!</span></span><br><span class="line"><span class="string">This is a message.</span></span><br><span class="line"><span class="string">`</span></span><br></pre></td></tr></table></figure>
+<h4 id="Some-Built-in-Objects-with-their-Functions-or-Methods"><a href="#Some-Built-in-Objects-with-their-Functions-or-Methods" class="headerlink" title="Some Built-in Objects with their Functions or Methods"></a>Some Built-in Objects with their Functions or Methods</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects">MDN Web Docs</a></p>
+<p><strong>Math</strong></p>
+<p><strong>String</strong></p>
+<p><strong>Object</strong></p>
+<p><strong>Date</strong></p>
 
       
     
@@ -273,10 +321,16 @@
     
   <nav class="article-page">
     
+      <a href="/9999/12/31/hello-world/" id="art-left" class="art-left">
+        <span class="next-title">
+          <i class="iconfont icon-left"></i>Hello World Again
+        </span>
+      </a>
     
-      <a href="/2021/01/01/JSNote2/" id="art-right" class="art-right">
+    
+      <a href="/2020/12/25/JSNote1/" id="art-right" class="art-right">
         <span class="prev-title">
-          Learning JavaScript! 2<i class="iconfont icon-right"></i>
+          Learning JavaScript! Get Started<i class="iconfont icon-right"></i>
         </span>
       </a>
     

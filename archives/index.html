@@ -229,7 +229,7 @@
   <div class="archive syuanpi fadeInRightShort" id="archive">
     
       <aside class="archive-title">Total</aside>
-      <span class="archive-num">2 Posts In Total</span>
+      <span class="archive-num">3 Posts In Total</span>
     
       
       
@@ -268,6 +268,83 @@
             
             
             <div class="archive-group">
+            <time class="archive-year"> 2021 </time>
+            <div class="archive-list">
+          
+          
+        <div class="archive-post">
+          <div class="archive-post-content">
+            
+              <h3 id="Object-Sequel"><a href="#Object-Sequel" class="headerlink" title="Object(Sequel)"></a>Object(Sequel)</h3><h4 id="Functions-are-Objects"><a href="#Functions-are-Objects" class="headerlink" title="Functions are Objects"></a>Functions are Objects</h4><p>This part looks a little bit complex for me.<span class="github-emoji" alias="cry" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f622.png?v8">&#x1f622;</span></p>
+<p>I will review it when I reach the chapter ‘Function’.</p>
+<h4 id="Value-and-Reference"><a href="#Value-and-Reference" class="headerlink" title="Value and Reference"></a>Value and Reference</h4><table>
+<thead>
+<tr>
+<th>Value Types</th>
+<th>Reference Types</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Number</td>
+<td>Object</td>
+</tr>
+<tr>
+<td>String</td>
+<td>Function</td>
+</tr>
+<tr>
+<td>Boolean</td>
+<td>Array</td>
+</tr>
+<tr>
+<td>Symbol</td>
+<td></td>
+</tr>
+<tr>
+<td>undefined</td>
+<td></td>
+</tr>
+<tr>
+<td>null</td>
+<td></td>
+</tr>
+</tbody></table>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = <span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">increase</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">    obj.value++;</span><br><span class="line">&#125;</span><br><span class="line">increase(obj);</span><br><span class="line"><span class="built_in">console</span>.log(obj); <span class="comment">// value -&gt; 10</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;<span class="attr">value</span>: <span class="number">10</span>&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">increase</span>(<span class="params">obj</span>)</span>&#123;</span><br><span class="line">    obj.value++;</span><br><span class="line">&#125;</span><br><span class="line">increase(obj);</span><br><span class="line"><span class="built_in">console</span>.log(obj); <span class="comment">// value -&gt; 11</span></span><br></pre></td></tr></table></figure>
+<p>JS has no such concept of  “pointers”.</p>
+<h4 id="Cloning-an-Object"><a href="#Cloning-an-Object" class="headerlink" title="Cloning an Object"></a>Cloning an Object</h4><p>Using <strong>Object.assign</strong>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123;<span class="attr">value</span>: <span class="number">10</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> obj2 = <span class="built_in">Object</span>.assign(&#123;&#125;,obj);</span><br><span class="line"></span><br><span class="line"><span class="comment">//2</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123;<span class="attr">value</span>: <span class="number">10</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> obj2 = &#123;<span class="attr">anotherProperty</span>: <span class="string">&#x27;haha&#x27;</span>&#125;;</span><br><span class="line"><span class="built_in">Object</span>.assign(obj2,obj);</span><br></pre></td></tr></table></figure>
+<p>Using  <strong>Spread Operator(…)</strong>:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj2 = &#123; ...obj &#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="Template-Literals-Template-strings"><a href="#Template-Literals-Template-strings" class="headerlink" title="Template Literals(Template strings)"></a>Template Literals(Template strings)</h4><p>No escape characters, no ‘+’ operator. Just format our string the way we want it to look like! <span class="github-emoji" alias="smile" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f604.png?v8">&#x1f604;</span></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> message = </span><br><span class="line"><span class="string">`</span></span><br><span class="line"><span class="string">This is a message.</span></span><br><span class="line"><span class="string">It looks the same as the output.</span></span><br><span class="line"><span class="string">`</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// placeholder $&#123;EXPRESSION&#125;</span></span><br><span class="line"><span class="keyword">const</span> name = <span class="string">&#x27;Haru&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> message =</span><br><span class="line"><span class="string">`</span></span><br><span class="line"><span class="string">Hi <span class="subst">$&#123;name&#125;</span>!</span></span><br><span class="line"><span class="string">This is a message.</span></span><br><span class="line"><span class="string">`</span></span><br></pre></td></tr></table></figure>
+<h4 id="Some-Built-in-Objects-with-their-Functions-or-Methods"><a href="#Some-Built-in-Objects-with-their-Functions-or-Methods" class="headerlink" title="Some Built-in Objects with their Functions or Methods"></a>Some Built-in Objects with their Functions or Methods</h4><p><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects">MDN Web Docs</a></p>
+<p><strong>Math</strong></p>
+<p><strong>String</strong></p>
+<p><strong>Object</strong></p>
+<p><strong>Date</strong></p>
+
+            
+          </div>
+          <div class="archive-post-info">
+            <time class="archive-post-time">
+              2021-01-01
+            </time>
+            <a  class="archive-post-link" href="/2021/01/01/JSNote2/">
+              Learning JavaScript! 2
+            </a>
+          </div>
+        </div>
+      
+        
+          
+          
+            
+              </div></section>
+            
+            
+            <div class="archive-group">
             <time class="archive-year"> 2020 </time>
             <div class="archive-list">
           
@@ -279,10 +356,18 @@
 <li><p>Strict Equality(Type+Value) <code>===</code></p>
 <p>Lose Equality(Value) <code>==</code></p>
 </li>
-</ul>
+<li><p><strong>for…in</strong> loop is used to iterate over the properties of an object.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">    valueA: <span class="number">123</span>,</span><br><span class="line">    valueB: <span class="number">456</span>,</span><br><span class="line">    valueC: <span class="number">789</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> key <span class="keyword">in</span> obj)</span><br><span class="line">    <span class="built_in">console</span>.log(key);</span><br><span class="line"><span class="comment">// valueA</span></span><br><span class="line"><span class="comment">// valueB</span></span><br><span class="line"><span class="comment">// valueC</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> key <span class="keyword">in</span> obj)</span><br><span class="line">    <span class="built_in">console</span>.log(obj[key]);</span><br><span class="line"><span class="comment">// 123</span></span><br><span class="line"><span class="comment">// 456</span></span><br><span class="line"><span class="comment">// 789</span></span><br></pre></td></tr></table></figure>
+<p>Example 2: Use <strong>Bracket Notation</strong> when we don’t know ahead of time what property we are going to access. <code>obj.key</code> <span class="github-emoji" alias="x" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/274c.png?v8">&#x274c;</span> :(</p>
+</li>
+<li><p><strong>for…of</strong> loop is used to iterate over the elements in an array.</p>
+<p>If we just change the keyword <code>in</code> to <code>of</code> in the code above, we will get the error message “obj is not iterable”.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> colors = [<span class="string">&#x27;red&#x27;</span>,<span class="string">&#x27;green&#x27;</span>,<span class="string">&#x27;blue&#x27;</span>]</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> key <span class="keyword">of</span> colors)</span><br><span class="line">    <span class="built_in">console</span>.log(key);</span><br><span class="line"><span class="comment">// red</span></span><br><span class="line"><span class="comment">// green</span></span><br><span class="line"><span class="comment">// blue</span></span><br></pre></td></tr></table></figure>
 <h4 id="Logical-Operators-with-Non-Booleans-Short-circuiting"><a href="#Logical-Operators-with-Non-Booleans-Short-circuiting" class="headerlink" title="Logical Operators with Non-Booleans (+ Short-circuiting)"></a>Logical Operators with Non-Booleans (+ Short-circuiting)</h4><p><code>false || 1       -&gt; 1 </code></p>
 <p><code>false || 1 || 2  -&gt; 1</code></p>
 <p><code>true &amp;&amp; &#39;name&#39;   -&gt;&quot;name&quot;</code></p>
+</li>
+</ul>
 <h3 id="Object"><a href="#Object" class="headerlink" title="Object"></a>Object</h3><p>Objects are Collections of <code>key-value</code> pairs.</p>
 <p>We use an object to encapsulate properties that are highly related.</p>
 <p>A Function in an object is usually called a “Method”.</p>
@@ -304,7 +389,7 @@
             <time class="archive-post-time">
               2020-12-25
             </time>
-            <a  class="archive-post-link" href="/2020/12/25/JSnote1/">
+            <a  class="archive-post-link" href="/2020/12/25/JSNote1/">
               Learning JavaScript! Get Started
             </a>
           </div>
@@ -359,7 +444,7 @@
     <div class="info">
         <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
         <span>&copy;</span>
-        <span>2020 ~ 2020</span>
+        <span>2020 ~ 2021</span>
         <span>❤</span>
         <span>hyp_rge</span>
     </div>
